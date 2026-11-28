@@ -43,15 +43,19 @@ function Button({
   className,
   variant = "default",
   size = "default",
+  render,
+  nativeButton = render ? false : true,
   ...props
 }) {
   return (
     <ButtonPrimitive
       data-slot="button"
+      render={render}
+      nativeButton={nativeButton}
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
     />
   )
 }
 
-export { Button, buttonVariants }
+export { Button }
